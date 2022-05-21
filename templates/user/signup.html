@@ -104,7 +104,7 @@
 <body>
 
     <div class="signup-form">
-        <form action="" method="post" class="form-horizontal">
+        <form action="process.php" method="post" class="form-horizontal">
             <div class="col-xs-8 col-xs-offset-4">
                 <h2>Sign Up</h2>
             </div>
@@ -133,6 +133,14 @@
                 <div class="col-xs-8">
                     <input class="form-control" autocomplete="new-password" id="id_password2" name="password2"
                         required="" type="password" />
+                </div>
+            </div>
+            <!--  k- added an upload picture form input -->
+            <div class="form-group">
+                <label class="control-label col-xs-4">Upload profile picture</label>
+                <div class="col-xs-8">
+                    <input class="form-control" autocomplete="new-password" id="id_password2" name="password2"
+                        required="" type="file" />
                 </div>
             </div>
             <div class="form-group">
