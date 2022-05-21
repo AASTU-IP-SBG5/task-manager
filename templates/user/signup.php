@@ -137,13 +137,12 @@
                 </div>
             </div>
             <!--  k- added an upload picture form input -->
-            <!-- <div class="form-group">
-                <label class="control-label col-xs-4">Upload profile picture</label>
-                <div class="col-xs-8">
-                    <input class="form-control" autocomplete="new-password" id="id_password2" name="password2"
-                        required="" type="file" />
+            <div class="form-group">
+                <div class="upload">
+                    <label class="control-label col-xs-4">Upload profile picture</label>
+                    <input type="file" autocomplete="new-password"  name="profileUpload"/>
                 </div>
-            </div> -->
+            </div>
             <div class="form-group">
                 <div class="col-xs-8 col-xs-offset-4">
                     <p><label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a

@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+
+<?php 
+include("process.php");
+
+if(!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: login.php');
+}
+
+?>
 <html lang="en">
 
 <head>
@@ -233,7 +242,7 @@
                     <a class="nav-link" href="/user/my-profile/">#<span>user</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user/logout/">Logout</a>
+                    <a class="nav-link" href="user_home.php?logout='1'">Logout</a>
                 </li>
             </ul>
         </div>
