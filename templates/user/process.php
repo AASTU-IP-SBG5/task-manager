@@ -11,7 +11,6 @@ $errors   = array();
 
 // if register button is clicked
 if (isset($_POST['register_btn'])) {
-    echo "checker";
 	register();
 }
 
@@ -23,8 +22,8 @@ function register(){
 	//call e functioin to do basic input validatation like escape
 	$username    =  e($_POST['username']);
 	$email       =  e($_POST['email']);
-	$password_1  =  e($_POST['password_1']);
-	$password_2  =  e($_POST['password_2']);
+	$password_1  =  e($_POST['password1']);
+	$password_2  =  e($_POST['password2']);
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { 
@@ -46,13 +45,13 @@ function register(){
 
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO users (username, email, user_type, password) 
+			$query = "INSERT INTO user (username, email, user_type, password) 
 					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
-			header('location: home.php');
+			header('location: admin_home.php');
 		}else{
-			$query = "INSERT INTO users (username, email, user_type, password) 
+			$query = "INSERT INTO user (username, email, user_type, password) 
 					  VALUES('$username', '$email', 'user', '$password')";
 			mysqli_query($db, $query);
 
@@ -69,10 +68,10 @@ function register(){
 // return user array from their id
 function getUserById($id){
 	global $db;
-	$query = "SELECT * FROM users WHERE id=" . $id;
+	$query = "SELECT * FROM user WHERE id=". $id;
 	$result = mysqli_query($db, $query);
 
-	$user = mysqli_fetch_assoc($result);
+    $user = mysqli_fetch_assoc($result);
 	return $user;
 }
 
@@ -96,74 +95,75 @@ function display_error() {
 		echo '</div>';
 	}
 }
-// function isLoggedIn()
-// {
-// 	if (isset($_SESSION['user'])) {
-// 		return true;
-// 	}else{
-// 		return false;
-// 	}
-// }
-// if (isset($_GET['logout'])) {
-// 	session_destroy();
-// 	unset($_SESSION['user']);
-// 	header("location: login.php");
-// }
+function isLoggedIn()
+{
+	if (isset($_SESSION['user'])) {
+		return true;
+	}else{
+		return false;
+	}
+}
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user']);
+	header("location: login.php");
+}
 
-// if (isset($_POST['login_btn'])) {
-// 	login();
-// }
+if (isset($_POST['login_btn'])) {
+	login();
+}
 
 // LOGIN USER
-// function login(){
-// 	global $db, $username, $errors;
+function login(){
+	global $db, $username, $errors;
 
-// 	// grap form values
-// 	$username = e($_POST['username']);
-// 	$password = e($_POST['password']);
+	
+	$username = e($_POST['username']);
+	$password = e($_POST['password']);
 
-// 	// make sure form is filled properly
-// 	if (empty($username)) {
-// 		array_push($errors, "Username is required");
-// 	}
-// 	if (empty($password)) {
-// 		array_push($errors, "Password is required");
-// 	}
+	
+	if (empty($username)) {
+		array_push($errors, "Username is required");
+	}
+	if (empty($password)) {
+		array_push($errors, "Password is required");
+	}
 
-// 	// attempt login if no errors on form
-// 	if (count($errors) == 0) {
-// 		$password = md5($password);
+	// attempt login if no errors on form
+	if (count($errors) == 0) {
+		$password = md5($password);
 
-// 		$query = "SELECT * FROM users WHERE username='$username' AND password='$password' LIMIT 1";
-// 		$results = mysqli_query($db, $query);
+		$query = "SELECT * FROM user WHERE username='$username' AND password='$password' LIMIT 1";
+		$results = mysqli_query($db, $query);
 
-// 		if (mysqli_num_rows($results) == 1) { // user found
-// 			// check if user is admin or user
-// 			$logged_in_user = mysqli_fetch_assoc($results);
-// 			if ($logged_in_user['user_type'] == 'admin') {
+		if (mysqli_num_rows($results) == 1) { // user found
+			// check if user is admin or user
+			$logged_in_user = mysqli_fetch_assoc($results);
+			if ($logged_in_user['user_type'] == 'admin') {
+                echo "cjecker";
 
-// 				$_SESSION['user'] = $logged_in_user;
-// 				$_SESSION['success']  = "You are now logged in";
-// 				header('location: admin/home.php');		  
-// 			}else{
-// 				$_SESSION['user'] = $logged_in_user;
-// 				$_SESSION['success']  = "You are now logged in";
+				$_SESSION['user'] = $logged_in_user;
+				$_SESSION['success']  = "You are now logged in";
+				header('location: ../admin/admin_home.php');	  
+			}else{
+				$_SESSION['user'] = $logged_in_user;
+				$_SESSION['success']  = "You are now logged in";
 
-// 				header('location: index.php');
-// 			}
-// 		}else {
-// 			array_push($errors, "Wrong username/password combination");
-// 		}
-// 	}
-// }
-// function isAdmin()
-// {
-// 	if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
-// 		return true;
-// 	}else{
-// 		return false;
-// 	}
-// }
+				header('location: user_home.php');
+			}
+		}else {
+			array_push($errors, "Wrong username/password combination");
+		}
+	}
+}
+function isAdmin()
+{
+	if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
+		return true;
+	}else{
+		return false;
+	}
+}
 
 
-// ?>
+?>

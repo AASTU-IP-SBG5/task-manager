@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php include('process.php') ?>
 
 <html lang="en">
 <title>Login</title>
@@ -117,7 +117,7 @@
 
 <body>
     <div class="login-form">
-        <form action="" method="post">
+        <form action="login.php" method="post">
             <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
             <h4 class="modal-title">Login to Your Account</h4>
             <div class="form-group">
@@ -131,9 +131,9 @@
                 <a href="#" class="forgot-link">Forgot Password?</a>
             </div>
             <!-- <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">               -->
-            <a href="templates/projects/personal_homepage.html" class="btn btn-primary btn-block btn-lg">Submit</a>
+            <button type="submit" class="btn btn-primary btn-block btn-lg" name="login_btn">Submit</button>
         </form>
-        <div class="text-center small">Don't have an account? <a href="signup.html">Sign Up</a> </div>
+        <div class="text-center small">Don't have an account? <a href="signup.php">Sign Up</a> </div>
     </div>
 </body>
 </html>

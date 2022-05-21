@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php include("process.php") ?>
 
 <html lang="en">
 
@@ -105,6 +105,7 @@
 
     <div class="signup-form">
         <form action="process.php" method="post" class="form-horizontal">
+                <?php echo display_error(); ?>
             <div class="col-xs-8 col-xs-offset-4">
                 <h2>Sign Up</h2>
             </div>
@@ -136,22 +137,22 @@
                 </div>
             </div>
             <!--  k- added an upload picture form input -->
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label class="control-label col-xs-4">Upload profile picture</label>
                 <div class="col-xs-8">
                     <input class="form-control" autocomplete="new-password" id="id_password2" name="password2"
                         required="" type="file" />
                 </div>
-            </div>
+            </div> -->
             <div class="form-group">
                 <div class="col-xs-8 col-xs-offset-4">
                     <p><label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a
                                 href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a>.</label></p>
-                    <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                    <input type="submit" value="Sign in" class="btn btn-primary btn-lg" name="register_btn">
                 </div>
             </div>
         </form>
-        <div class="text-center">Already have an account? <a href="login.html">Login here</a></div>
+        <div class="text-center">Already have an account? <a href="login.php">Login here</a></div>
     </div>
 </body>
 
