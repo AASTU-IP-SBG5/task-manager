@@ -239,7 +239,9 @@ if(!isLoggedIn()) {
         <div>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/user/my-profile/">#<span>user</span></a>
+                    <a class="nav-link" href="/user/my-profile/">
+                        <span><i class  = "fa-solid fa-user" ></i></span>
+                        user
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="user_home.php?logout='1'">Logout</a>
