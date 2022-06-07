@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+
+include("function.php");
+
+?>
 <html lang="en">
 
 <head>
@@ -10,11 +14,11 @@
    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-   <link rel="stylesheet" href="/styles/admin/admin_login.css">
+   <link rel="stylesheet" href="assets/css/admin_login.css">
    <title>Admin Login</title>
 </head>
 
-<body> 
+<body>
    <div class="sidenav">
       <div class="login-main-text">
          <h2>Admin<br> Login Page</h2>
@@ -24,17 +28,18 @@
    <div class="main">
       <div class="col-md-6 col-sm-12">
          <div class="login-form">
-            <form>
+            <form method="POST" action="admin_login.php">
+               <?php echo display_error(); ?>
                <div class="form-group">
                   <label>User Name</label>
-                  <input type="text" class="form-control" placeholder="User Name">
+                  <input type="text" class="form-control" placeholder="User Name" name="adminname">
                </div>
                <div class="form-group">
                   <label>Password</label>
-                  <input type="password" class="form-control" placeholder="Password">
+                  <input type="password" class="form-control" placeholder="Password" name="adminpassword">
                </div>
-               <!-- <button type="submit" class="btn btn-black">Login</button> -->
-               <a href="admin.html" class="btn btn-black">Login</a>
+               <button type="submit" class="btn btn-black" name="adminLog">Login</button>
+               <!-- <a href="admin_login.php" class="btn btn-black" name="adminLog">Login</a> -->
             </form>
          </div>
       </div>

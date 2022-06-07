@@ -1,6 +1,7 @@
 
 <?php 
-include("process.php");
+// include("process.php");
+include("project.php");
 
 if(!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
@@ -241,7 +242,7 @@ if(!isLoggedIn()) {
                 <li class="nav-item">
                     <a class="nav-link" href="/user/my-profile/">
                         <span><i class  = "fa-solid fa-user" ></i></span>
-                        user
+                        user </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="user_home.php?logout='1'">Logout</a>
@@ -258,7 +259,9 @@ if(!isLoggedIn()) {
         <div class="sidebar-container">
             <div class="sidebar-top">
 
-                <form action="/projects/group-project/" method="POST">
+                <form action="project.php" method="POST" >
+                     <?php echo display_project_error(); ?>
+
                     <!-- Add a token here -->
                     <div class="form-row">
                         <div class="form-group col-md-9">
@@ -288,12 +291,13 @@ if(!isLoggedIn()) {
                                             <div class="form-group">
                                                 <label for="id_deadline_date">Deadline date:</label>
                                                 <input class="form-control" id="id_deadline_date" name="deadline_date"
-                                                    required="" type="text">
+                                                    required="" type="date">
                                                 </input>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <input class="btn btn-primary" type="submit" value="Submit" />
+                                            <!-- button for additon of a project -->
+                                            <input class="btn btn-primary" type="submit" value="Submit" name="project_add_submit" />
                                         </div>
                                     </div>
                                 </div>

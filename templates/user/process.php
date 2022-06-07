@@ -44,6 +44,7 @@ function register(){
 		$password = md5($password_1);
 
 		if (isset($_POST['user_type'])) {
+
 			$user_type = e($_POST['user_type']);
 			$query = "INSERT INTO user (username, email, user_type, password) 
 					  VALUES('$username', '$email', '$user_type', '$password')";
@@ -51,6 +52,7 @@ function register(){
 			$_SESSION['success']  = "New user successfully created!!";
 			header('location: admin_home.php');
 		}else{
+
 			$query = "INSERT INTO user (username, email, user_type, password) 
 					  VALUES('$username', '$email', 'user', '$password')";
 			mysqli_query($db, $query);
@@ -140,7 +142,6 @@ function login(){
 			// check if user is admin or user
 			$logged_in_user = mysqli_fetch_assoc($results);
 			if ($logged_in_user['user_type'] == 'admin') {
-                echo "cjecker";
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
