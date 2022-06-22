@@ -28,9 +28,13 @@ function register(){
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { 
 		array_push($errors, "Username is required"); 
+	}else{
+		$username =  e($_POST['username']);
 	}
 	if (empty($email)) { 
 		array_push($errors, "Email is required"); 
+	}else{
+		$email  =  e($_POST['email']);
 	}
 	if (empty($password_1)) { 
 		array_push($errors, "Password is required"); 
@@ -173,6 +177,22 @@ function isAdmin()
 		return false;
 	}
 }
+$searchErr = '';
+$search_result ='';
+if(isset($_POST['search_query'])){
 
+	if(!empty($_POST['search_query']))
+    {
+        $search = $_POST['search_query'];
+        $stmt = $con->prepare("select * from project where project_name like '%$search%'");
+        $stmt->execute();
+        $search_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+         
+    }
+    else
+    {
+        $searchErr = "Please enter the information";
+    }
+}
 
 ?>

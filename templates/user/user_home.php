@@ -232,8 +232,8 @@ if(!isLoggedIn()) {
             </ul>
         </div>
         <div>
-            <form action="/projects/search-projects/" class="form-inline" method="get">
-                <input aria-label="Search" class="form-control mr-sm-2" name="query"
+            <form action="./process.php" class="form-inline" method="post">
+                <input aria-label="Search" class="form-control mr-sm-2" name="search_query"
                     placeholder="Search your project...." type="search" />
             </form>
         </div>
