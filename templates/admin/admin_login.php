@@ -39,6 +39,7 @@ include("function.php");
                   <input type="password" class="form-control" placeholder="Password" name="adminpassword">
                </div>
                <button type="submit" class="btn btn-black" name="adminLog">Login</button>
+               
                <!-- <a href="admin_login.php" class="btn btn-black" name="adminLog">Login</a> -->
             </form>
          </div>

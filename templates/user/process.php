@@ -144,12 +144,20 @@ function login(){
 			if ($logged_in_user['user_type'] == 'admin') {
 
 				$_SESSION['user'] = $logged_in_user;
+				
 				$_SESSION['success']  = "You are now logged in";
 				header('location: ../admin/admin_home.php');	  
 			}else{
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 
+				$user_session_id = $_SESSION['user']['id'];
+				$query_project = "SELECT * FROM project WHERE user_id='$user_session_id'";
+
+				$results_project = mysqli_query($db, $query_project);
+				$projectlist_in_session = mysqli_fetch_assoc($results_project);
+
+				$_SESSION['project'] = $projectlist_in_session;
 				header('location: user_home.php');
 			}
 		}else {

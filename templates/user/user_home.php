@@ -373,7 +373,7 @@ if(!isLoggedIn()) {
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
-                                            <form action={% url 'create-pt' personal_default.id %} method="POST">
+                                            <form action="project.php" method="POST">
                                                 <!-- {% csrf_token %} -->
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLongTitle">
@@ -393,18 +393,18 @@ if(!isLoggedIn()) {
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="id_description">Description:</label>
-                                                        <textarea cols="40" id="id_description" name="description"
+                                                        <textarea cols="40" id="id_description" name="task_description"
                                                             required="" rows="10">
                                       </textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="id_deadline_date">Deadline date:</label>
                                                         <input class="form-control" id="id_deadline_date"
-                                                            name="deadline_date" required="" type="text" />
+                                                            name="task_deadline_date" required="" type="text" />
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <input class="btn btn-primary" type="submit" value="submit" />
+                                                    <input class="btn btn-primary" name="task_submit" type="submit" value="submit" />
 
                                                 </div>
                                             </form>
