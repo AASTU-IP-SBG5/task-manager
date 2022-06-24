@@ -3,6 +3,7 @@ window.addEventListener('load', () => {
 	const input = document.querySelector("#new-project-input");
 	const list_el = document.querySelector("#projects");
 
+	console.log(form);
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
 

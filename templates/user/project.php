@@ -32,7 +32,6 @@ require("process.php");
     }
 
     if(count($project_error) == 0){
-
         $sql = "INSERT INTO project (project_name,pro_description,updated,created,task_count,deadline,user_id) VALUES ('$project_name','$project_description', '$project_updated', '$project_created', '$project_task_count', '$project_deadline', '$project_user_id')";
         mysqli_query($db, $sql);
         header('location: user_home.php');

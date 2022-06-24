@@ -255,6 +255,8 @@ if(!isLoggedIn()) {
     <!-- start of main container section -->
     <div class="wrapper">
 
+            
+<!-- =============/************************************************************************************************ */ -->
         <!-- Start of Sidebar -->
         <div class="sidebar-container">
             <div class="sidebar-top">
@@ -311,12 +313,14 @@ if(!isLoggedIn()) {
             <div class="card border-info mb-3 card-bg-color" style="max-width: 18rem;">
                 <div class="card-header">Browse Group Projects</div>
                 <ul class="card-body text-info">
-                    <li class="list-items">
+                    <!-- <li class="list-items">
                         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                             href="/dashboard/team-project/1/">
                             Example project
                         </a>
-                    </li>
+                    </li> -->
+                    <?php echo output_project(); ?>
+
                 </ul>
             </div>
             <!-- end listing projects -->
